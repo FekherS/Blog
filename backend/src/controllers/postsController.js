@@ -4,7 +4,8 @@ import Post from "../models/Post.js";
 
 export async function getAllPosts(req, res) {
     try {
-        const posts = await Post.find({isDeleted: false}).sort({ceatedAt: -1});
+        const posts = await Post.find({ isDeleted: false }).sort({ ceatedAt: -1 }).populate("user", "-password");
+        
         res.status(200).json(posts);
     } catch (error) {
         console.log("Get All Posts error",error);

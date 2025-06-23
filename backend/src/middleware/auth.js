@@ -10,6 +10,7 @@ export const authenticate = (req, res, next) => {
     req.userId = decoded.id; // assuming the payload includes `id`
     next();
   } catch (err) {
+    console.log(err);
     res.status(400).json({ message: "Invalid token" });
   }
 };

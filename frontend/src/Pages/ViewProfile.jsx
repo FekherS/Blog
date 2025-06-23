@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ViewPage = () => {
+const ViewProfile = () => {
   return (
     <div>
       
@@ -8,5 +8,5 @@ const ViewPage = () => {
   )
 }
 
-export default ViewPage
+export default ViewProfile
 
