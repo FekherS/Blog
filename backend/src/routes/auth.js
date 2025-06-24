@@ -16,8 +16,9 @@ router.post('/register', async (req, res) => {
         if (existingUser) return res.status(400).json({ error: 'User exists' });
         const user = await User.create({name: userName, email, password: hashedPassword });
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ token, user: { id: user._id, userName, email } });
+        res.status(200).json({ token, user: { id: user._id, userName : user.name, email } });
     } catch (err) {
+        console.log(err);
         res.status(500).json({ error: 'Server error' });
     }
 });

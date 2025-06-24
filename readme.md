@@ -8,7 +8,7 @@ A simple blog application built with React, Tailwind CSS, and DaisyUI. Users can
 
 - Finish pages in frontend
 - Responsive design with Tailwind CSS
-- Adjust API depending on needs (e.g. pagination, posts by specific user)
+- Adjust API depending on needs (e.g. pagination, posts by specific use for profiles)
 - Explore adding likes or comments
 - Explore adding friends
 - Explore adding messaging

@@ -65,8 +65,9 @@ const Login = () => {
 					/>
 			</div>
 
-			<div className="form-control mt-4">
-				<button type="submit" className="btn btn-primary">Login</button>
+			<div className="form-control mt-4 flex flex-col gap-2">
+				<button type="submit" className="btn btn-accent btn-md">Login</button>
+				<button type="button" onClick={() => navigate("/")} className="btn btn-secondary btn-sm">Go Home</button>
 			</div>
 		</form>
 	</div>

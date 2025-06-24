@@ -4,7 +4,7 @@ import Post from "../models/Post.js";
 
 export async function getAllPosts(req, res) {
     try {
-        const posts = await Post.find({ isDeleted: false }).sort({ ceatedAt: -1 }).populate("user", "-password");
+        const posts = await Post.find({ isDeleted: false }).sort({ createdAt: -1 }).populate("user", "-password");
         
         res.status(200).json(posts);
     } catch (error) {
@@ -27,6 +27,7 @@ export async function getOnePost(req, res) {
 }
 export async function createPost(req, res) {
     try {    
+        console.log(req.body);
         const { title, body } = req.body;
         const user = req.userId;
         const newPost = new Post({ title, body, user });

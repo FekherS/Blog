@@ -14,7 +14,8 @@ const NavBar = () => {
 
 			{isLoggedIn ? (
 				<div className="flex-none">
-					<Link to={`/profil/${userId}`} className="btn btn-ghost text-xl">Profile</Link>
+					<Link to={`/create`} className="btn btn-ghost text-xl">New Post</Link>
+					<Link to={`/profil/${userId}`} className="btn btn-ghost text-xl">Profil</Link>
 					<button className="btn btn-ghost text-xl" onClick={logout}> Logout</button>
 				</div>
 			) : (
