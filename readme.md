@@ -26,9 +26,6 @@ A simple blog application built with React, Tailwind CSS, and DaisyUI. Users can
 ## Technologies Used
 
 - React
-- React Router
-- Tailwind CSS
-- DaisyUI
-- Express.js (for backend API)
-- MongoDB (assumed for data storage)
-- Fetch API for HTTP requests
+- Tailwind CSS & DaisyUI
+- Node.js & Express.js
+- MongoDB 
