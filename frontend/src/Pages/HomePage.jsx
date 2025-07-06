@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 import Posts from '../components/Posts';
 
 const HomePage = () => {
-	const { isLoggedIn, userName } = useContext(LoginContext); 
 	
 	return (
 		<>

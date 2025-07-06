@@ -4,18 +4,39 @@ import Post from "../models/Post.js";
 
 export async function getAllPosts(req, res) {
     try {
-        const posts = await Post.find({ isDeleted: false }).sort({ createdAt: -1 }).populate("user", "-password");
-        
-        res.status(200).json(posts);
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 5;
+        const skip = (page - 1) * limit;
+        const userId = req.query.user; // optional user filter
+
+        const query = { isDeleted: false };
+
+        if (userId) {
+            query.user = userId;
+        }
+
+        const posts = await Post.find(query)
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .populate("user", "-password");
+
+        const totalPosts = await Post.countDocuments(query);
+        const totalPages = Math.ceil(totalPosts / limit);
+
+        res.status(200).json({
+            posts,
+            totalPages
+        });
     } catch (error) {
-        console.log("Get All Posts error",error);
+        console.log("Get All Posts error", error);
         res.status(500).json({ message: "Server error" });
     }
-
 }
+
 export async function getOnePost(req, res) {
     try {
-        const post = await Post.findOne({ _id: req.params.id, isDeleted: false });
+        const post = await Post.findOne({ _id: req.params.id, isDeleted: false }).populate("user", "-password");;
         if (!post) {
             return res.status(404).json({ message: "No post found" });
         }

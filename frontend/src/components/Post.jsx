@@ -42,7 +42,7 @@ const Post = ({ post }) => {
 			<p className='text-sm text-primary font-medium mb-2 cursor-pointer hover:underline' onClick={navUser}>
 				{post.user.name}
 			</p>
-			<div className='text-base text-gray-700 whitespace-pre-line'>
+			<div className='text-base whitespace-pre-line'>
 				{truncateBody(post.body)}
 				{post.body.length > MAX_LENGTH && (
 					<span className='text-blue-500 underline ml-2'>Read more</span>
